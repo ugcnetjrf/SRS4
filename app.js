@@ -3,8 +3,27 @@ let aggressiveIntervals = JSON.parse(localStorage.getItem("aggressiveSRI") || "[
 let relaxedIntervals = JSON.parse(localStorage.getItem("relaxedSRI") || "[3,6,12,21]");
 const standardIntervals = [1, 3, 7, 14, 21];
 
+// Function to get the current date in IST (Indian Standard Time)
+function getISTDate() {
+  const options = { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' };
+  const today = new Date();
+  const date = new Intl.DateTimeFormat('en-IN', options).format(today);
+  return date.split("/").reverse().join("-"); // Formats the date as YYYY-MM-DD
+}
+
+// Function to get a future date in IST by adding days to a base date
+function getFutureDate(base, days) {
+  let d = new Date(base);
+  d.setDate(d.getDate() + days);
+
+  // Convert to IST time zone
+  const options = { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' };
+  const futureDate = new Intl.DateTimeFormat('en-IN', options).format(d);
+  return futureDate.split("/").reverse().join("-"); // Formats the date as YYYY-MM-DD
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  const today = new Date().toISOString().split("T")[0];
+  const today = getISTDate(); // Get the current date in IST
   const dateInput = document.getElementById("taskDate");
   if (dateInput) dateInput.value = today;
 
@@ -38,12 +57,6 @@ function addTask() {
   tasks.push(newTask);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   location.reload();
-}
-
-function getFutureDate(base, days) {
-  let d = new Date(base);
-  d.setDate(d.getDate() + days);
-  return d.toISOString().split("T")[0];
 }
 
 function renderTodayTasks(today) {
