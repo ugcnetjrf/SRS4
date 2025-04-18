@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spaced Repetition Task Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Spaced Repetition Tracker</h1>
+
+    <div class="input-group">
+      <input type="text" id="taskTitle" placeholder="Enter Task Title" />
+      <input type="text" id="taskDetails" placeholder="Enter Task Detail" />
+      <input type="date" id="taskDate" />
+      <select id="sriRegime">
+        <option value="standard">Standard</option>
+        <option value="aggressive">Aggressive</option>
+        <option value="relaxed">Relaxed</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <h2>Revision Tasks (Due Today)</h2>
+    <div id="revisionTasks" class="task-section"></div>
+
+    <h2>Daily Tasks (Today’s Entries)</h2>
+    <div id="dailyTasks" class="task-section"></div>
+
+    <div class="bottom-buttons">
+      <button onclick="window.location.href='all-tasks.html'">All Tasks</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
