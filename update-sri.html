@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update SRI Regimes</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Update Spaced Repetition Intervals</h1>
+
+    <div class="sri-config">
+      <h2>Aggressive Regime</h2>
+      <input type="text" id="aggressiveInput" placeholder="e.g. 1,2,4,7" />
+    </div>
+
+    <div class="sri-config">
+      <h2>Relaxed Regime</h2>
+      <input type="text" id="relaxedInput" placeholder="e.g. 3,6,12,21" />
+    </div>
+
+    <button onclick="saveSRIConfig()">Save Regimes</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
