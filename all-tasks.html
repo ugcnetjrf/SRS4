@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Tasks</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>All Tasks (Grouped by Date)</h1>
+
+    <div class="top-buttons">
+      <button onclick="downloadTasks()">Download</button>
+      <button onclick="uploadTasks()">Upload Tasks</button>
+      <button onclick="resetAllTasks()">Reset All</button>
+      <button onclick="window.location.href='update-sri.html'">Update SRI</button>
+    </div>
+
+    <div id="allTasks"></div>
+
+    <input type="file" id="uploadFile" style="display:none;" accept=".txt" onchange="handleFileUpload(event)" />
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
